@@ -1,0 +1,249 @@
+/* Общие стили для страницы */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: url('img/background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    overflow-x: hidden;
+}
+
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Новый прелоадер */
+.loader {
+    width: 50px;
+    aspect-ratio: 1;
+    display: grid;
+    border-radius: 50%;
+    background: conic-gradient(#25b09b 25%, #f03355 0 50%, #514b82 0 75%, #ffa516 0);
+    animation: l22 2s infinite linear;
+}
+
+.loader::before,
+.loader::after {
+    content: "";
+    grid-area: 1/1;
+    margin: 15%;
+    border-radius: 50%;
+    background: inherit;
+    animation: inherit;
+}
+
+.loader::after {
+    margin: 25%;
+    animation-duration: 3s;
+}
+
+@keyframes l22 {
+    100% {
+        transform: rotate(1turn)
+    }
+}
+
+/* Анимация для fadeIn */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Анимация для появления элементов при прокрутке */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-up {
+    animation: fadeInUp 1.5s ease-out;
+}
+
+.fade-up-long {
+    animation: fadeInUp 2.5s ease-out;
+}
+
+/* Верхнее меню */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(33, 33, 33, 0.8);
+    color: #00C8FF;
+    font-size: 18px;
+    border-bottom: 2px solid #00C8FF;
+}
+
+.icon {
+    cursor: pointer;
+}
+
+nav {
+    margin-left: auto;
+}
+
+nav a {
+    text-decoration: none;
+    color: #00C8FF;
+    margin-left: 20px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #00FFEF;
+    text-decoration: underline;
+}
+
+main {
+    padding: 20px;
+    background-color: rgba(48, 48, 48, 0.7);
+    margin: 20px;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+.highlight-text {
+    color: #FFD700;
+}
+
+.collapsible {
+    background-color: #a0a619;
+    color: white;
+    cursor: pointer;
+    padding: 10px;
+    text-align: left;
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 18px;
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+.collapsible:hover {
+    background-color: #b1b424;
+}
+
+.content {
+    display: none;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: lightgray;
+    border-radius: 8px;
+    margin-top: 5px;
+}
+
+.content-active {
+    display: block;
+}
+
+/* Кнопки */
+.donate-button, .buy-pass-button {
+    display: inline-block;
+    padding: 15px 30px;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 2px solid white;
+    transition: all 0.3s ease;
+}
+
+.donate-button {
+    background-color: #FFD700;
+}
+
+.donate-button:hover {
+    background-color: #FFC300;
+}
+
+.buy-pass-button {
+    background-color: #32CD32;
+}
+
+.buy-pass-button:hover {
+    background-color: #28A745;
+}
+
+footer {
+    background-color: rgba(33, 33, 33, 0.8);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    border-top: 2px solid #00C8FF;
+}
+
+/* Слайдер изображений */
+.slider {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+    margin-top: 20px;
+}
+
+.slider img {
+    width: 100%;
+    object-fit: cover;
+    animation: slide 10s infinite;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0); }
+    33% { transform: translateX(-100%); }
+    66% { transform: translateX(-200%); }
+    100% { transform: translateX(0); }
+}
+
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    nav a {
+        display: block;
+        margin: 10px 0;
+    }
+
+    main {
+        margin: 10px;
+        padding: 15px;
+    }
+}
