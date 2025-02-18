@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница Minecraft</title>
+    <style>
+        /* Общие стили для страницы */
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: url('img/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        /* Новый прелоадер */
+        .loader {
+            width: 50px;
+            aspect-ratio: 1;
+            display: grid;
+            border-radius: 50%;
+            background: conic-gradient(#25b09b 25%, #f03355 0 50%, #514b82 0 75%, #ffa516 0);
+            animation: l22 2s infinite linear;
+        }
+
+        .loader::before,
+        .loader::after {
+            content: "";
+            grid-area: 1/1;
+            margin: 15%;
+            border-radius: 50%;
+            background: inherit;
+            animation: inherit;
+        }
+
+        .loader::after {
+            margin: 25%;
+            animation-duration: 3s;
+        }
+
+        @keyframes l22 {
+            100% {
+                transform: rotate(1turn)
+            }
+        }
+
+        /* Анимация для fadeIn */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Анимация для появления элементов при прокрутке */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-up {
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .fade-up-long {
+            animation: fadeInUp 2.5s ease-out;
+        }
+
+        /* Верхнее меню */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: rgba(33, 33, 33, 0.8);
+            color: #00C8FF;
+            font-size: 18px;
+            border-bottom: 2px solid #00C8FF;
+        }
+
+        .icon {
+            cursor: pointer;
+        }
+
+        nav {
+            margin-left: auto;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #00C8FF;
+            margin-left: 20px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #00FFEF;
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 20px;
+            background-color: rgba(48, 48, 48, 0.7);
+            margin: 20px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .highlight-text {
+            color: #FFD700;
+        }
+
+        .collapsible {
+            background-color: #a0a619;
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            text-align: left;
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 18px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        .collapsible:hover {
+            background-color: #b1b424;
+        }
+
+        .content {
+            display: none;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: lightgray;
+            border-radius: 8px;
+            margin-top: 5px;
+        }
+
+        .content-active {
+            display: block;
+        }
+
+        /* Кнопки */
+        .donate-button, .buy-pass-button {
+            display: inline-block;
+            padding: 15px 30px;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+
+        .donate-button {
+            background-color: #FFD700;
+        }
+
+        .donate-button:hover {
+            background-color: #FFC300;
+        }
+
+        .buy-pass-button {
+            background-color: #32CD32;
+        }
+
+        .buy-pass-button:hover {
+            background-color: #28A745;
+        }
+
+        footer {
+            background-color: rgba(33, 33, 33, 0.8);
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            border-top: 2px solid #00C8FF;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <header>
+        <div class="icon">
+            <a href="https://www.youtube.com/@Diktafon" target="_blank">
+                <img src="img/diktafon.jpg" alt="Новая иконка" style="width: 50px; border-radius: 50%;">
+            </a>
+        </div>
+        <nav>
+            <a href="">Главная</a>
+            <a href="https://web.telegram.org/a/#1407239406" target="_blank">Контакт с нами</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1 class="highlight-text fade-up">The Age of Technomagic</h1>
+        <p class="highlight-text fade-up">Добро пожаловать на нашу сборку! Эта наша первая сборка, поэтому, возможно, мы что-то упустили, но мы старались сделать её максимально крутой!</p>
+        <p class="highlight-text fade-up">У нас есть собственный лаунчер, который можно скачать после покупки проходки в нашем Telegram.</p>
+        <p class="highlight-text fade-up">Создавай уникальную атмосферу для твоих приключений в Minecraft!</p>
+        
+        <a href="https://www.donationalerts.com/r/i_hate_blue_" class="donate-button" target="_blank">Поддержать проект</a>
+        <a href="https://web.telegram.org/a/#8001035811" class="buy-pass-button" target="_blank">Купить проходку</a>
+
+        <button class="collapsible fade-up">Подробнее</button>
+        <div class="content fade-up-long">
+            <p>Сборка включает в себя уникальные элементы магии и технологий, которые создают неповторимую атмосферу. Вы сможете строить механизмы, зачаровывать предметы и открывать новые миры. Мир Technomagic полон загадок, а взаимодействие магии и технологий позволит вам раскрыть его секреты!</p>
+            <h3>Основные моды:</h3>
+
+            <ul>
+                <li><span style="color: #1f8e99;"><strong>Applied Energistics 2</strong></span> — <span style="color: #b0b0b0;">Инновационная система управления ресурсами и хранения данных.</span></li>
+                <li><span style="color: #0f6e38;"><strong>Industrial Foregoing</strong></span> — <span style="color: #b0b0b0;">Мод для автоматизации производства и создания мощных машин.</span></li>
+                <li><span style="color: #56c5c1;"><strong>Mekanism</strong></span> — <span style="color: #b0b0b0;">Высокотехнологичные устройства, от энергии до мощных механизмов.</span></li>
+                <li><span style="color: #c47b7b;"><strong>Mystical Agriculture</strong></span> — <span style="color: #b0b0b0;">Выращивание уникальных растений и создание новых ресурсов.</span></li>
+                <li><span style="color: #a43f3f;"><strong>Re:Avaritia[Forge/Fabric/Neoforge]</strong></span> — <span style="color: #b0b0b0;">Мод для создания сверхмощных инструментов и бесконечных возможностей.</span></li>
+                <li><span style="color: #d4a944;"><strong>Totemic</strong></span> — <span style="color: #b0b0b0;">Магические обряды, тотемы и взаимодействие с природными силами.</span></li>
+                <li><span style="color: #53725b;"><strong>Yung's (и его дополнения)</strong></span> — <span style="color: #b0b0b0;">Новые структуры и приключения, которые добавляют разнообразие в мир.</span></li>
+                <li><span style="color: #4b9d87;"><strong>Create</strong></span> — <span style="color: #b0b0b0;">Революционные механизмы и строительство с использованием инновационных систем.</span></li>
+                <span style="color: #4c2f6b;"><strong>Ars Nouveau</strong></span> — <span style="color: #b0b0b0;">Волшебные заклинания и магия, которые открывают новые возможности в игре.</span>
+                <li><span style="color: #a7db6f;"><strong>Botania</strong></span> — <span style="color: #b0b0b0;">Магия природы, цветы и растения, которые используются для создания мощных артефактов.</span></li>
+                <li><span style="color: #d16b2b;"><strong>Thermal Expansion</strong></span> — <span style="color: #b0b0b0;">Мод для создания мощных машин, переработки ресурсов и автоматизации.</span></li>
+            </ul>
+            
+        </div>
+
+    </main>
+
+    <footer>
+        <p>© Сайтик создан для ютубера DIKTAFON</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(() => {
+                document.querySelector(".preloader").style.display = "none";
+            }, 500); // Убираем прелоадер через 0,5 секунды
+        });
+
+        // Скрипт для раскрывающейся "папки"
+        document.querySelector(".collapsible").addEventListener("click", function() {
+            this.nextElementSibling.classList.toggle("content-active");
+            this.nextElementSibling.style.display = this.nextElementSibling.style.display === "block" ? "none" : "block";
+        });
+    </script>
+</body>
+
+</html>
